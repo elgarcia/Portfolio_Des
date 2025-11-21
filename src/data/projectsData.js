@@ -18,6 +18,8 @@ export const projects = [
     title: "Niel edits",
     description: "Proyecto con carrusel horizontal de imágenes.",
     layout: "carousel",
-    images: ["/images/Niel/niel-2024-1_01.png", "/images/Niel/niel-2024-2_01.png", "/images/Niel/niel-2024-3_01.png"],
+    images: ["/images/Niel/niel-2024-1_01.png", "/images/Niel/niel-2024-2_01.png", 
+      "/images/Niel/niel-2024-3_01.png", "/images/Niel/nielsito-3_01.png", "/images/Niel/nielsito-3_02.png",
+      "/images/Niel/nielsito-3_03.png"],
   },
 ];

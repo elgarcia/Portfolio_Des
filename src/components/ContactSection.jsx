@@ -13,7 +13,7 @@ export default function ContactSection() {
           Si te interesa colaborar o ver más trabajos, escríbeme:
         </p>
         <a
-          href="mailto:contacto@portfolio3d.com"
+          href="mailto:Dorani2306@gmail.com"
           className="px-6 py-3  rounded-4xl border-black text-black border-2 hover:border-white hover:text-white transition z-10"
         >
           Enviar correo

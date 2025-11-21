@@ -1,10 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
+import CarouselPreview from "./CarouselPreview";
 
 export default function ProjectCard({ project }) {
   return (
     <motion.div
-      className="h-screen snap-none flex flex-col items-center justify-center p-6 bg-pink-100"
+      className="h-screen snap-none flex flex-col items-center justify-center bg-pink-100"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -18,12 +19,12 @@ export default function ProjectCard({ project }) {
         <img
           src={project.images[0]}
           alt={project.title}
-          className="w-full h-2/3 md:h-3/4 object-scale-down"
+          className="w-full h-2/3 md:h-3/4 object-scale-down p-12"
         />
       )}
 
       {project.layout === "threeColumns" && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full h-screen">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full h-full">
           {project.images.map((img, i) => (
             <img
               key={i}
@@ -36,17 +37,10 @@ export default function ProjectCard({ project }) {
       )}
 
       {project.layout === "carousel" && (
-        <div className="flex overflow-x-auto w-full h-screen snap-x snap-mandatory">
-          {project.images.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt={`${project.title} ${i}`}
-              className="w-full shrink-0 h-3/4 object-scale-down snap-start"
-            />
-          ))}
-        </div>
+        <CarouselPreview project={project} />
       )}
+
+
     </motion.div>
   );
 }
