@@ -18,7 +18,7 @@ export default function ProjectCard({ project }) {
         <img
           src={project.images[0]}
           alt={project.title}
-          className="w-full h-2/3 md:h-3/4 object-scale-down py-6"
+          className="w-full h-2/3 md:h-3/4 object-scale-down"
         />
       )}
 
@@ -29,20 +29,20 @@ export default function ProjectCard({ project }) {
               key={i}
               src={img}
               alt={`${project.title} ${i}`}
-              className="w-full h-screen object-scale-down"
+              className="w-full h-2/3 m:h-3/4 object-scale-down"
             />
           ))}
         </div>
       )}
 
       {project.layout === "carousel" && (
-        <div className="flex overflow-x-auto gap-4 w-full h-2/3 mb-12 snap-x snap-mandatory">
+        <div className="flex overflow-x-auto w-full h-screen snap-x snap-mandatory">
           {project.images.map((img, i) => (
             <img
               key={i}
               src={img}
               alt={`${project.title} ${i}`}
-              className="w-full flex-shrink-0 h-full object-scale-down snap-start"
+              className="w-full shrink-0 h-3/4 object-scale-down snap-start"
             />
           ))}
         </div>
