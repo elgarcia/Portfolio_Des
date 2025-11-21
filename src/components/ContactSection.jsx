@@ -1,8 +1,6 @@
-import Footer from "./Footer"
-
 export default function ContactSection() {
   return (
-    <section id="contact" className="relative flex flex-col items-center justify-between h-screen w-full snap-start text-center">
+    <section id="contact" className="relative flex flex-col items-center justify-between h-[calc(100vh-80px)] w-full snap-start">
       {/* Rosa */}
       <div className="absolute inset-0 bg-pink-100 z-0" />
 
@@ -21,7 +19,6 @@ export default function ContactSection() {
           Enviar correo
         </a>
       </div>
-      <Footer />
     </section>
   )
 }

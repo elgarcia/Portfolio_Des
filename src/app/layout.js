@@ -15,7 +15,9 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body className={`${poppins.className} bg-white text-foreground`}>
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="snap-y snap-mandatory h-screen overflow-y-auto">
+          {children}
+        </main>
       </body>
     </html>
   )

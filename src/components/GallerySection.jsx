@@ -1,13 +1,16 @@
-import projects from '../data/projectsData'
+import { projects } from '../data/projectsData'
 import ProjectCard from './ProjectCard'
 
 export default function GallerySection() {
   return (
-    <section id="projects" className="h-screen w-full snap-start py-24">
-      <h2 className="text-4xl font-bold text-center mb-12">Proyectos destacados</h2>
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
-        Aqui van los proyectos
+    <section id='projects' className="h-screen snap-start w-full py-20 bg-pink-100">
+
+      <div className="h-screen w-full snap-y snap-mandatory overflow-y-auto">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
       </div>
     </section>
-  )
+  );
 }
+

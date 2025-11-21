@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section id="inicio" className="relative h-screen w-full snap-start flex flex-col items-center justify-center text-center py-24">
+    <section id="inicio" className="relative h-screen w-full snap-start flex items-center justify-center py-24">
 
       {/* Rosa */}
-      <div className="absolute top-0 left-0 h-full w-full bg-pink-100" />
+      <div className="absolute top-0 left-0 h-full w-full bg-pink-200" />
 
       {/* div con blur solo en la parte inferior */}
-      <div className="absolute  w-full h-100 bg-pink-100/20 backdrop-blur-md" />
+      <div className="absolute  w-full h-100 bg-pink-200/20 backdrop-blur-md" />
 
       {/* GRADIENTE */}
       <div className="absolute inset-0 -bg-linear-120 from-transparent to-black opacity-30 pointer-events-none" />
@@ -24,7 +24,7 @@ export default function HeroSection() {
         PORTFOLIO <span className="text-accent">DRESLER</span>
       </motion.h1>
 
-      <div className="absolute top-30 left-10 text-left z-10">
+      <div className="absolute top-20 left-10 text-left z-10">
         {/* Línea 1: Título */}
         <motion.p
           initial={{ opacity: 0, y: -20 }}
