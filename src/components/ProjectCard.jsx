@@ -11,7 +11,7 @@ export default function ProjectCard({ project }) {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <h2 className="text-4xl text-black font-bold mb-4text-center">{project.title}</h2>
+      <h2 className="text-4xl text-black font-bold mb-4 text-center">{project.title}</h2>
       <p className="text-gray-600 mb-6 text-center max-w-2xl">{project.description}</p>
 
       {/* Renderiza según layout */}
@@ -20,6 +20,7 @@ export default function ProjectCard({ project }) {
           src={project.images[0]}
           alt={project.title}
           className="w-full h-2/3 md:h-3/4 object-scale-down p-12"
+          loading="lazy"
         />
       )}
 
@@ -30,17 +31,14 @@ export default function ProjectCard({ project }) {
               key={i}
               src={img}
               alt={`${project.title} ${i}`}
-              className="w-full h-2/3 m:h-3/4 object-scale-down"
+              className="w-full h-2/3 md:h-3/4 object-scale-down"
+              loading="lazy"
             />
           ))}
         </div>
       )}
 
-      {project.layout === "carousel" && (
-        <CarouselPreview project={project} />
-      )}
-
-
+      {project.layout === "carousel" && <CarouselPreview project={project} />}
     </motion.div>
   );
 }

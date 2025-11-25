@@ -9,9 +9,7 @@ export default function CarouselPreview({ project }) {
   const controls = useAnimation();
 
   useEffect(() => {
-    const handleResize = () => {
-      setWidth(containerRef.current?.clientWidth || 0);
-    };
+    const handleResize = () => setWidth(containerRef.current?.clientWidth || 0);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -39,23 +37,24 @@ export default function CarouselPreview({ project }) {
     <div className="relative w-full h-[75vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
       
       {/* Imagen lateral izquierda */}
-{currentIndex > 0 && width > 768 && ( // solo en desktop/tablet
-  <img
-    src={project.images[currentIndex - 1]}
-    className="absolute left-0 top-1/2 -translate-y-1/2 h-full w-auto object-scale-down 
-      opacity-60 scale-75 blur-sm pointer-events-none transition-all duration-500 z-0"
-  />
-)}
+      {currentIndex > 0 && width > 768 && (
+        <img
+          src={project.images[currentIndex - 1]}
+          className="absolute left-0 top-1/2 -translate-y-1/2 h-full w-auto object-scale-down 
+            opacity-60 scale-75 blur-sm pointer-events-none transition-all duration-500 z-0"
+          loading="lazy"
+        />
+      )}
 
-{/* Imagen lateral derecha */}
-{currentIndex < project.images.length - 1 && width > 768 && ( // solo en desktop/tablet
-  <img
-    src={project.images[currentIndex + 1]}
-    className="absolute right-0 top-1/2 -translate-y-1/2 h-full w-auto object-scale-down 
-      opacity-60 scale-75 blur-sm pointer-events-none transition-all duration-500 z-0"
-  />
-)}
-
+      {/* Imagen lateral derecha */}
+      {currentIndex < project.images.length - 1 && width > 768 && (
+        <img
+          src={project.images[currentIndex + 1]}
+          className="absolute right-0 top-1/2 -translate-y-1/2 h-full w-auto object-scale-down 
+            opacity-60 scale-75 blur-sm pointer-events-none transition-all duration-500 z-0"
+          loading="lazy"
+        />
+      )}
 
       {/* Carrusel principal draggable */}
       <motion.div
@@ -67,27 +66,29 @@ export default function CarouselPreview({ project }) {
         animate={controls}
         whileTap={{ cursor: "grabbing" }}
       >
-        {project.images.map((img, i) => (
-          <div
-            key={i}
-            className="flex-shrink-0 w-full h-full flex items-center justify-center"
-          >
-            <motion.img
-  src={img}
-  className="rounded-lg shadow-lg object-scale-down"
-  style={{
-    width: width < 768 ? "90%" : "auto",
-    height: width < 768 ? "60vh" : "75%",
-    scale: i === currentIndex ? 1 : 0.75,
-    opacity: i === currentIndex ? 1 : 0.6,
-    zIndex: i === currentIndex ? 20 : 0, 
-  }}
-  drag={false}
-  draggable={false}
-/>
+        {project.images.map((img, i) => {
+          const isCurrent = i === currentIndex;
 
-          </div>
-        ))}
+          return (
+            <div
+              key={i}
+              className="flex-shrink-0 w-full h-full flex items-center justify-center"
+            >
+              <motion.img
+                src={img}
+                className="h-2/3 md:h-3/4 w-auto object-scale-down rounded-lg shadow-lg"
+                style={{
+                  scale: isCurrent ? 1 : 0.75,
+                  opacity: isCurrent ? 1 : 0.6,
+                  zIndex: isCurrent ? 20 : 0,
+                }}
+                drag={false}
+                draggable={false}
+                loading={isCurrent ? "eager" : "lazy"} // optimización sin romper drag
+              />
+            </div>
+          );
+        })}
       </motion.div>
     </div>
   );
