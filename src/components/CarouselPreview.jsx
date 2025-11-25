@@ -1,65 +1,94 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 export default function CarouselPreview({ project }) {
-  const scrollRef = useRef(null);
+  const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [width, setWidth] = useState(0);
+  const controls = useAnimation();
 
-  // Detectar qué imagen está centrada en tiempo real
   useEffect(() => {
-    const scroll = scrollRef.current;
-
-    const onScroll = () => {
-      const width = scroll.clientWidth;
-      const scrollLeft = scroll.scrollLeft;
-
-      // Índice aproximado en el centro
-      const newIndex = Math.round(scrollLeft / width);
-
-      setCurrentIndex(newIndex);
+    const handleResize = () => {
+      setWidth(containerRef.current?.clientWidth || 0);
     };
-
-    scroll.addEventListener("scroll", onScroll);
-
-    return () => scroll.removeEventListener("scroll", onScroll);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Calcular imágenes laterales
-  const prevImage =
-    currentIndex > 0 ? project.images[currentIndex - 1] : null;
-  const nextImage =
-    currentIndex < project.images.length - 1
-      ? project.images[currentIndex + 1]
-      : null;
+  const onDragEnd = (e, info) => {
+    const offset = info.offset.x;
+    const velocity = info.velocity.x;
+    let newIndex = currentIndex;
+
+    if (offset < -50 || velocity < -500) {
+      newIndex = Math.min(currentIndex + 1, project.images.length - 1);
+    } else if (offset > 50 || velocity > 500) {
+      newIndex = Math.max(currentIndex - 1, 0);
+    }
+
+    setCurrentIndex(newIndex);
+    controls.start({
+      x: -newIndex * width,
+      transition: { type: "spring", stiffness: 300, damping: 30 },
+    });
+  };
 
   return (
-    <div className="relative w-full h-3/4 flex items-center justify-center">
+    <div className="relative w-full h-[75vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
+      
+      {/* Imagen lateral izquierda */}
+{currentIndex > 0 && width > 768 && ( // solo en desktop/tablet
+  <img
+    src={project.images[currentIndex - 1]}
+    className="absolute left-0 top-1/2 -translate-y-1/2 h-full w-auto object-scale-down 
+      opacity-60 scale-75 blur-sm pointer-events-none transition-all duration-500 z-0"
+  />
+)}
 
-      {/* --- Imagen izquierda de fondo --- */}
-      {prevImage && (
-        <img
-          src={prevImage}
-          className="absolute left-0 top-1/2 -translate-y-1/2 h-full w-auto object-scale-down 
-            opacity-80 scale-70 blur-sm pointer-events-none transition-all duration-500"/>
-      )}
+{/* Imagen lateral derecha */}
+{currentIndex < project.images.length - 1 && width > 768 && ( // solo en desktop/tablet
+  <img
+    src={project.images[currentIndex + 1]}
+    className="absolute right-0 top-1/2 -translate-y-1/2 h-full w-auto object-scale-down 
+      opacity-60 scale-75 blur-sm pointer-events-none transition-all duration-500 z-0"
+  />
+)}
 
-      {/* --- Imagen derecha de fondo --- */}
-      {nextImage && (
-        <img
-          src={nextImage}
-          className="absolute right-0 top-1/2 -translate-y-1/2 h-full w-auto object-scale-down 
-            opacity-80 scale-70 blur-sm pointer-events-none transition-all duration-500"/>
-      )}
 
-      {/* --- Carrusel principal con scroll horizontal --- */}
-      <div ref={scrollRef} className="relative z-10 flex overflow-x-auto snap-x snap-mandatory w-full h-screen gap-4 scrollbar-none">
+      {/* Carrusel principal draggable */}
+      <motion.div
+        ref={containerRef}
+        className="flex w-full h-full cursor-grab z-10"
+        drag="x"
+        dragConstraints={{ left: -(project.images.length - 1) * width, right: 0 }}
+        onDragEnd={onDragEnd}
+        animate={controls}
+        whileTap={{ cursor: "grabbing" }}
+      >
         {project.images.map((img, i) => (
-          <div key={i} className="flex-shrink-0 w-full h-full flex items-center justify-center snap-start">
-            <img src={img} className="h-2/3 w-auto object-scale-down"
-            />
+          <div
+            key={i}
+            className="flex-shrink-0 w-full h-full flex items-center justify-center"
+          >
+            <motion.img
+  src={img}
+  className="rounded-lg shadow-lg object-scale-down"
+  style={{
+    width: width < 768 ? "90%" : "auto",
+    height: width < 768 ? "60vh" : "75%",
+    scale: i === currentIndex ? 1 : 0.75,
+    opacity: i === currentIndex ? 1 : 0.6,
+    zIndex: i === currentIndex ? 20 : 0, 
+  }}
+  drag={false}
+  draggable={false}
+/>
+
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

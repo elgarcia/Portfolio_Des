@@ -1,4 +1,4 @@
-export const projects = [
+export const projects2D = [
   {
     id: 1,
     title: "Cartel Evento",
@@ -22,4 +22,10 @@ export const projects = [
       "/images/Niel/niel-2024-3_01.png", "/images/Niel/nielsito-3_01.png", "/images/Niel/nielsito-3_02.png",
       "/images/Niel/nielsito-3_03.png"],
   },
+];
+
+export const projects3D = [
+  { id: "p3d-1", title: "Proyecto 3D #1" },
+  { id: "p3d-2", title: "Proyecto 3D #2" },
+  { id: "p3d-3", title: "Proyecto 3D #3" }
 ];

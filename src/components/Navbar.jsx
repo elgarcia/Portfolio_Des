@@ -22,7 +22,7 @@ export default function Navbar() {
           <Link href="#about" className="hover:text-pink-300 transition-colors">
             Sobre mi
           </Link>
-          <Link href="#projects" className="hover:text-pink-300 transition-colors">
+          <Link href="#gallery" className="hover:text-pink-300 transition-colors">
             Proyectos
           </Link>
           <Link href="#contact" className="hover:text-pink-300 transition-colors">
@@ -88,7 +88,7 @@ export default function Navbar() {
                 Sobre mi
               </Link>
               <Link
-                href="#projects"
+                href="#gallery"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-pink-300 transition-colors"
               >

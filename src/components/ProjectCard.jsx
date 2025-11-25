@@ -5,7 +5,7 @@ import CarouselPreview from "./CarouselPreview";
 export default function ProjectCard({ project }) {
   return (
     <motion.div
-      className="h-screen snap-none flex flex-col items-center justify-center bg-pink-100"
+      className="min-h-screen md:h-screen snap-none flex flex-col items-center justify-center bg-pink-100 px-4 md:px-0"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
