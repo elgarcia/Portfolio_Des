@@ -2,7 +2,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="relative flex flex-col items-center justify-between h-[calc(100vh-80px)] w-full snap-start">
       {/* Rosa */}
-      <div className="absolute inset-0 bg-pink-100 z-0" />
+      <div className="absolute inset-0 bg-pink-200 z-0" />
 
       {/* Gradiente similar al HeroSection */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-30 pointer-events-none z-0" />

@@ -13,7 +13,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-30 pointer-events-none z-0" />
 
       {/* --- Textos laterales / arriba --- */}
-      <div className="relative z-10 flex flex-col items-start max-w-full">
+      <div className="relative z-10 flex flex-col items-start max-w-full text-black">
         {/* Línea 1: Título profesional */}
         <motion.p
           initial={{ opacity: 0, y: -20 }}
@@ -53,7 +53,7 @@ export default function HeroSection() {
         >
           <a
             href="#projects"
-            className="px-6 sm:px-8 py-3 border border-accent text-accent rounded-full hover:bg-accent hover:text-black transition-all duration-300"
+            className="px-6 sm:px-8 py-3 border-2 border-accent text-accent rounded-full hover:bg-accent hover:text-white transition-all duration-300"
           >
             Ver proyectos
           </a>
@@ -66,9 +66,8 @@ export default function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         className="
-          absolute bottom-10 left-6 md:left-10
-          text-4xl sm:text-5xl md:text-6xl lg:text-7xl
-          font-bold tracking-tight z-10
+          absolute bottom-10 left-6 md:left-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+          font-bold tracking-tight z-10 text-black 
         "
       >
         PORTFOLIO <span className="text-accent">DRESLER</span>

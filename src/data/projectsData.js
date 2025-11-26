@@ -10,7 +10,7 @@ export const projects2D = [
     id: 2,
     title: "Evento Retro",
     description: "Proyecto con tres imágenes lado a lado.",
-    layout: "threeColumns",
+    layout: "carousel",
     images: ["/images/EventoRetro/canvas.png", "/images/EventoRetro/CLICK_RETRO.png", "/images/EventoRetro/CLICK_RETRO2.png"],
   },
   {

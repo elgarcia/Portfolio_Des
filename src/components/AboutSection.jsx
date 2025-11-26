@@ -46,7 +46,7 @@ export default function AboutSection() {
                 </div>
 
                 {/* Columna Derecha */}
-                <div className="flex flex-row space-x-6 min-w-[220px] text-right">
+                <div className="flex flex-row space-x-6 min-w-[220px] sm:text-right">
                     <div>
                         <p className="text-sm sm:text-base text-gray-300">Buscando colaborar en producciones creativas</p>
                         <p className="text-sm sm:text-base text-gray-300">Aprendiendo tendencias digitales</p>
@@ -64,7 +64,7 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.6 }}
             >
-                <div className="w-full grid grid-cols-1 md:grid-cols-2">
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 space-y-4 bottom-0">
 
                     {/* Columna Izquierda */}
                     <div className="flex flex-col sm:flex-row sm:flex-wrap space-y-4 sm:space-x-6 min-w-[220px]">
@@ -104,7 +104,7 @@ export default function AboutSection() {
                     </div>
 
                     {/* Columna Derecha */}
-                    <div className="flex flex-col sm:flex-row space-y-8 sm:space-y-0 sm:space-x-6 min-w-[220px] text-right justify-end mt-auto mb-8">
+                    <div className="flex flex-col sm:flex-row space-y-4 sm:space-x-6 min-w-[220px] sm:text-right justify-end">
 
                         <div>
                             <h3 className="text-white font-semibold mb-2 sm:mb-4">Diseño Gráfico</h3>

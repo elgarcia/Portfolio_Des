@@ -17,7 +17,7 @@ export default function GallerySection() {
   };
 
   return (
-    <section id="gallery" className="w-full snap-start">
+    <section id="gallery" className="w-full snap-start bg-black">
 
       {/* 🔥 Pantalla completa con título + selectores */}
       <div className="w-full h-screen flex flex-col justify-center items-center px-6">
