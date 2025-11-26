@@ -1,6 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import CarouselPreview from "./CarouselPreview";
+import dynamic from "next/dynamic";
+
+const Model3D = dynamic(() => import("./Model3D"), { ssr: false });
 
 export default function ProjectCard({ project }) {
   return (
@@ -14,7 +17,7 @@ export default function ProjectCard({ project }) {
       <h2 className="text-4xl text-pink-300 font-bold mb-4 text-center">{project.title}</h2>
       {/*<p className="text-gray-600 mb-6 text-center max-w-2xl">{project.description}</p>*/}
 
-      {/* Renderiza según layout */}
+      {/* Renderiza 2D */}
       {project.layout === "fullImage" && (
         <img
           src={project.images[0]}
@@ -24,21 +27,15 @@ export default function ProjectCard({ project }) {
         />
       )}
 
-      {project.layout === "threeColumns" && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full h-full">
-          {project.images.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt={`${project.title} ${i}`}
-              className="w-full h-2/3 md:h-3/4 object-scale-down"
-              loading="lazy"
-            />
-          ))}
+      {project.layout === "carousel" && <CarouselPreview project={project} />}
+
+      {/* Renderiza 3D */}
+      {project.layout === "3dModel" && (
+        <div className="w-full flex justify-center py-6">
+          <Model3D src={project.modelUrl} />
         </div>
       )}
 
-      {project.layout === "carousel" && <CarouselPreview project={project} />}
     </motion.div>
   );
 }

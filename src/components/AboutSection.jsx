@@ -58,13 +58,13 @@ export default function AboutSection() {
 
             {/* Estudios / habilidades */}
             <motion.div
-                className="w-full flex flex-col justify-end py-8 mt-auto"
+                className="w-full flex flex-col py-8 mt-auto md:mt-60"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.6 }}
             >
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 space-y-4 bottom-0">
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-y-4">
 
                     {/* Columna Izquierda */}
                     <div className="flex flex-col sm:flex-row sm:flex-wrap space-y-4 sm:space-x-6 min-w-[220px]">
@@ -104,7 +104,7 @@ export default function AboutSection() {
                     </div>
 
                     {/* Columna Derecha */}
-                    <div className="flex flex-col sm:flex-row space-y-4 sm:space-x-6 min-w-[220px] sm:text-right justify-end">
+                    <div className="flex flex-col sm:flex-row space-y-4 sm:space-x-6 min-w-[220px] sm:text-right justify-end sm:pt-30 pt-0">
 
                         <div>
                             <h3 className="text-white font-semibold mb-2 sm:mb-4">Diseño Gráfico</h3>

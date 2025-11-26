@@ -24,7 +24,7 @@ export default function GallerySection() {
 
         {/* Título animado */}
         <motion.h2
-          className="text-5xl font-bold text-center mb-12"
+          className="text-5xl font-bold text-white text-center mb-12"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -35,7 +35,7 @@ export default function GallerySection() {
 
         {/* Selectores animados */}
         <motion.div
-          className="flex flex-col md:flex-row justify-around items-center gap-12 w-full max-w-5xl"
+          className="flex flex-col md:flex-row justify-around text-white items-center gap-12 w-full max-w-5xl"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
