@@ -42,14 +42,14 @@ export const projects2D = [
 export const projects3D = [
   {
     id: 101,
-    title: "Proyecto 3D 1",
+    title: "F 18",
     description: "Modelado 3D interactivo",
     layout: "3dModel",
     modelUrl: "/models/F_18_LowPoly.glb"
   },
   {
     id: 102,
-    title: "Proyecto 3D 2",
+    title: "Helicoptero",
     description: "Modelado 3D interactivo",
     layout: "3dModel",
     modelUrl: "/models/Helicoptero_LowPoly.glb"
