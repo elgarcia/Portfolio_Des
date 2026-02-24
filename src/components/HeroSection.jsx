@@ -52,7 +52,7 @@ export default function HeroSection() {
           className="mt-6"
         >
           <a
-            href="#gallery"
+            href="#projects"
             className="px-6 sm:px-8 py-3 border-2 border-accent text-accent rounded-full hover:bg-accent hover:text-white transition-all duration-300"
           >
             Ver proyectos

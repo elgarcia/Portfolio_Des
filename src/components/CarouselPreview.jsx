@@ -33,7 +33,16 @@ export default function CarouselPreview({ project }) {
     });
   };
 
+  const goToIndex = (newIndex) => {
+    setCurrentIndex(newIndex);
+    controls.start({
+      x: -newIndex * width,
+      transition: { type: "spring", stiffness: 300, damping: 30 },
+    });
+  };
+
   return (
+    
     <div className="relative w-full h-[75vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
       
       {/* Imagen lateral izquierda */}
@@ -90,6 +99,37 @@ export default function CarouselPreview({ project }) {
           );
         })}
       </motion.div>
+      {/* Flecha izquierda */}
+{currentIndex > 0 && (
+  <button
+    onClick={() => goToIndex(currentIndex - 1)}
+    className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 
+               bg-black/40 hover:bg-black/60 
+               text-white w-10 h-10 rounded-full 
+               flex items-center justify-center 
+               backdrop-blur-sm transition z-20"
+  >
+    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+  <path d="M15 18l-6-6 6-6" />
+</svg>
+  </button>
+)}
+
+{/* Flecha derecha */}
+{currentIndex < project.images.length - 1 && (
+  <button
+    onClick={() => goToIndex(currentIndex + 1)}
+    className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 
+               bg-black/40 hover:bg-black/60 
+               text-white w-10 h-10 rounded-full 
+               flex items-center justify-center 
+               backdrop-blur-sm transition z-20"
+  >
+    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M9 6l6 6-6 6" />
+</svg>
+  </button>
+)}
     </div>
   );
 }

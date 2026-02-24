@@ -51,31 +51,86 @@ export default function ContactSection() {
         </motion.a>
       </motion.div>
 
-      {/* Icono Instagram con animación */}
+      <div className="flex gap-6 justify-center">
+        {/* Icono Instagram con animación */}
+        <motion.div
+          className="flex flex-col z-10 pb-4 sm:pb-6 items-center text-black"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <a
+            href="https://www.instagram.com/dorani.design"
+            target="_blank"
+            className="group"
+          >
+            <motion.svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-8 h-8 sm:w-10 sm:h-10 text-black group-hover:text-white transition"
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm8.5 1.5c2.35 0 4.25 1.9 4.25 4.25v8.5c0 2.35-1.9 4.25-4.25 4.25h-8.5A4.25 4.25 0 013 16.25v-8.5C3 5.4 4.9 3.5 7.25 3.5h8.5zM12 7a5 5 0 100 10 5 5 0 000-10zm0 1.8a3.2 3.2 0 110 6.4 3.2 3.2 0 010-6.4zM17.5 6.25a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
+            </motion.svg>
+          </a>
+          <p>Instagram</p>
+        </motion.div>
+        {/* Icono ArtStation con animación */}
       <motion.div
-        className="z-10 pb-4 sm:pb-6"
+        className="flex flex-col items-center z-10 pb-4 sm:pb-6 text-black"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+        transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
         viewport={{ once: true }}
       >
         <a
-          href="https://www.instagram.com/dorani.design"
+          href="https://www.artstation.com/dorani"
           target="_blank"
+          rel="noopener noreferrer"
           className="group"
         >
           <motion.svg
-            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
             className="w-8 h-8 sm:w-10 sm:h-10 text-black group-hover:text-white transition"
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.95 }}
           >
-            <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm8.5 1.5c2.35 0 4.25 1.9 4.25 4.25v8.5c0 2.35-1.9 4.25-4.25 4.25h-8.5A4.25 4.25 0 013 16.25v-8.5C3 5.4 4.9 3.5 7.25 3.5h8.5zM12 7a5 5 0 100 10 5 5 0 000-10zm0 1.8a3.2 3.2 0 110 6.4 3.2 3.2 0 010-6.4zM17.5 6.25a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
+            <path d="M2 18.5l3.2-5.6h5.5L14 18.5H2zm7.8-7L13.8 5h5.6L22 18.5h-5.6l-2.2-4.3H8.2z" />
           </motion.svg>
         </a>
+        <p>ArtStation</p>
       </motion.div>
+      {/* Icono Behance con animación */}
+      <motion.div
+        className="flex flex-col items-center z-10 pb-4 sm:pb-6 text-black"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        <a
+          href="https://www.behance.net/dorani_"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group"
+        >
+          <motion.svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-8 h-8 sm:w-10 sm:h-10 text-black group-hover:text-white transition"
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <path d="M3 7h6.5a3.5 3.5 0 010 7H3V7zm0 8h7a3 3 0 010 6H3v-6zm9.5-4h8v2h-8v-2zm0 3h6.5a3.5 3.5 0 010 7H12.5v-7z" />
+          </motion.svg>
+        </a>
+        <p>Behance</p>
+      </motion.div>
+  </div>
     </section>
   );
 }

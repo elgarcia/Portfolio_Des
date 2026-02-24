@@ -16,16 +16,16 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-6 text-sm md:text-base">
-          <Link href="#inicio" className="hover:text-pink-300 transition-colors">
+          <Link href="/#inicio" className="hover:text-pink-300 transition-colors">
             Inicio
           </Link>
-          <Link href="#about" className="hover:text-pink-300 transition-colors">
+          <Link href="/#about" className="hover:text-pink-300 transition-colors">
             Sobre mi
           </Link>
-          <Link href="#gallery" className="hover:text-pink-300 transition-colors">
+          <Link href="/#projects" className="hover:text-pink-300 transition-colors">
             Proyectos
           </Link>
-          <Link href="#contact" className="hover:text-pink-300 transition-colors">
+          <Link href="/#contact" className="hover:text-pink-300 transition-colors">
             Contacto
           </Link>
         </div>
@@ -81,21 +81,21 @@ export default function Navbar() {
                 Inicio
               </Link>
               <Link
-                href="#about"
+                href="/#about"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-pink-300 transition-colors"
               >
                 Sobre mi
               </Link>
               <Link
-                href="#gallery"
+                href="/#projects"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-pink-300 transition-colors"
               >
                 Proyectos
               </Link>
               <Link
-                href="#contact"
+                href="/#contact"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-pink-300 transition-colors"
               >

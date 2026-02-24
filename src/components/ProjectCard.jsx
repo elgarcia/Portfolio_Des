@@ -12,7 +12,7 @@ export default function ProjectCard({ project }) {
     >
       {/* Título animado */}
       <motion.h2
-        className="text-4xl text-black font-bold mb-4 text-center"
+        className="text-4xl text-black font-bold mb-4 mt-4 text-center"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -30,6 +30,39 @@ export default function ProjectCard({ project }) {
           <Model3D src={project.modelUrl} />
         </div>
       )}
+
+      {/* 🔥 BRIEF DEL PROYECTO */}
+      <motion.div
+        className="max-w-3xl mt-5 text-black space-y-4 text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <div className="flex flex-col md:flex-row justify-center gap-6 text-sm uppercase tracking-wide">
+          {project.role && (
+            <span className="text-nowrap">
+              <strong>Rol:</strong> {project.role}
+            </span>
+          )}
+          {project.collaboration && (
+            <span className="text-nowrap">
+              <strong>Colaboración:</strong> {project.collaboration}
+            </span>
+          )}
+          {project.tool && (
+            <span className="text-nowrap">
+              <strong>Herramientas:</strong> {project.tool}
+            </span>
+          )}
+        </div>
+
+        {project.description && (
+          <p className="text-sm md:text-sm leading-relaxed mt-4 mb-8">
+            {project.description}
+          </p>
+        )}
+      </motion.div>
     </div>
   );
 }

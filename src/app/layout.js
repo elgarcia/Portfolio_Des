@@ -7,6 +7,10 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"]});
 export const metadata = {
   title: 'Portfolio Dresler',
   description: 'Portfolio 3d interactivo y responsive',
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
