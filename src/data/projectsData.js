@@ -32,7 +32,7 @@ export const projects2D = [
     id: 4,
     title: "Cartel Evento",
     layout: "carousel",
-    images: ["/images/CartelEvento/Igle_02_V2_Jovenes.png", "/images/CartelEvento/cine_2.png"],
+    images: ["/images/CartelEvento/Igle_02_V2_Jovenes.png", "/images/CartelEvento/cine_2.png", "/images/CartelEvento/Mesa_3.jpg"],
   },
   {
     id: 5,
@@ -45,6 +45,14 @@ export const projects2D = [
     title: "Proceso Creativo",
     layout: "carousel",
     images: ["/images/EventoRetro/canvas.png", "/images/EventoRetro/CLICK_RETRO.png", "/images/EventoRetro/CLICK_RETRO2.png"],
+  },
+  {
+    id: 7,
+    title: "Kavod",
+    layout: "carousel",
+    images: ["/images/Kavod/Logo.png", "/images/Kavod/logo2.png", "/images/Kavod/logo3.png", "/images/Kavod/Mesa3.png",
+    "/images/Kavod/Mock_up_pared.jpg", "/images/Kavod/Mock_up_pared2.jpg", "/images/Kavod/Mock_up_Recetario.jpg", "/images/Kavod/Mock_up_tarjeta_presentacion.jpg",
+    "/images/Kavod/Mokc_up_Triptico.jpg", "/images/Kavod/Presentacion.png"],
   },
 ];
 

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -49,14 +50,21 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.0, duration: 1 }}
-          className="mt-6"
+          className="mt-6 flex flex-col sm:flex-row gap-4"
         >
-          <a
-            href="#projects"
-            className="px-6 sm:px-8 py-3 border-2 border-accent text-accent rounded-full hover:bg-accent hover:text-white transition-all duration-300"
+          <Link
+            href="/proyectos/2d"
+            className="px-6 sm:px-8 py-3 border-2 border-accent text-accent rounded-full hover:bg-accent hover:text-white transition-all duration-300 text-center"
           >
-            Ver proyectos
-          </a>
+            Proyectos 2D
+          </Link>
+
+          <Link
+            href="/proyectos/3d"
+            className="px-6 sm:px-8 py-3 border-2 border-accent text-accent rounded-full hover:bg-accent hover:text-white transition-all duration-300 text-center"
+          >
+            Proyectos 3D
+          </Link>
         </motion.div>
       </div>
 

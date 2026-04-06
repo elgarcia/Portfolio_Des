@@ -41,6 +41,7 @@ export default function AboutSection() {
                 <div className="flex flex-row space-x-6 min-w-[220px] flex-1">
                     <div>
                         <p className="text-sm sm:text-base text-gray-300">Dresler Muñoz</p>
+                        <p className="text-sm sm:text-base text-gray-300"><em>Dorani</em> en Redes Sociales</p>
                         <p className="text-sm sm:text-base text-gray-300">Barcelona, Spain</p>
                     </div>
                 </div>
